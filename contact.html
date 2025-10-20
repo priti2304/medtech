@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MedTech Solutions - Contact</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    function validateForm() {
+      const f = document.forms["contactForm"];
+      const name = f["name"].value.trim();
+      const email = f["email"].value.trim();
+      const phone = f["phone"].value.trim();
+      const age = f["age"].value.trim();
+      const dept = f["department"].value;
+      const agree = f["agree"].checked;
+
+      // basic checks
+      if (!name) { alert("Enter your name"); return false; }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { alert("Enter a valid email"); return false; }
+      if (!phone || !/^\d{10}$/.test(phone)) { alert("Enter a 10-digit phone number"); return false; }
+      if (!age || isNaN(age) || age < 18) { alert("Enter a valid age (>=18)"); return false; }
+      if (!dept) { alert("Select a department"); return false; }
+      if (!agree) { alert("Please accept terms"); return false; }
+
+      // all good
+      alert("Form submitted. Thank you!");
+      return false; // change to true if you actually submit to server
+    }
+  </script>
+</head>
+<body>
+  <header><h1>Contact MedTech Solutions</h1></header>
+  
+
+  <main class="container">
+    <section>
+      <h2>Contact / Inquiry Form</h2>
+
+      <form name="contactForm" onsubmit="return validateForm()">
+        <label>Full name</label>
+        <input type="text" name="name" placeholder="Your name">
+
+        <label>Email</label>
+        <input type="email" name="email" placeholder="you@example.com">
+
+        <label>Phone</label>
+        <input type="text" name="phone" placeholder="10-digit phone">
+
+        <label>Age</label>
+        <input type="number" name="age" min="18" max="120">
+
+        <label>Gender</label><br>
+        <input type="radio" name="gender" value="Male"> Male
+        <input type="radio" name="gender" value="Female"> Female
+        <input type="radio" name="gender" value="Other"> Other
+        <br><br>
+
+        <label>Department</label>
+        <select name="department">
+          <option value="">-- Select --</option>
+          <option value="Sales">Sales</option>
+          <option value="Support">Support</option>
+          <option value="Technical">Technical</option>
+        </select>
+
+        <label>Interested features</label><br>
+        <input type="checkbox" name="feature" value="Wireless"> Wireless
+        <input type="checkbox" name="feature" value="Portable"> Portable
+        <input type="checkbox" name="feature" value="Touchscreen"> Touchscreen
+        <br><br>
+
+        <label>Message</label>
+        <textarea name="message" rows="4" placeholder="Write your message..."></textarea>
+
+        <br>
+        <input type="checkbox" name="agree"> I agree to terms & conditions
+        <br><br>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </section>
+  </main>
+
+  <footer><p>&copy; 2025 MedTech Solutions</p></footer>
+  <script src="script.js"></script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - MedTech Solutions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Contact MedTech Solutions</h1>
+        <nav>
+            <a href="index.html">Home</a> |
+            <a href="about.html">About Us</a> |
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Get in Touch</h2>
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required><br>
+
+                <label for="gender">Gender:</label>
+                <input type="radio" name="gender" value="Male"> Male
+                <input type="radio" name="gender" value="Female"> Female <br>
+
+                <label for="machine">Interested Equipment:</label>
+                <select id="machine" name="machine" required>
+                    <option value="">--Select--</option>
+                    <option value="ECG Machine">ECG Machine</option>
+                    <option value="X-Ray Machine">X-Ray Machine</option>
+                    <option value="Ultrasound">Ultrasound</option>
+                </select><br>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+
+                <input type="checkbox" id="terms" required> I agree to the terms & conditions<br>
+
+                <input type="submit" value="Submit">
+                <input type="reset" value="Reset">
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MedTech Solutions | Designed by Priti</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
